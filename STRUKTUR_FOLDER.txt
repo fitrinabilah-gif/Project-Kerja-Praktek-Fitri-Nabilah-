@@ -1,0 +1,292 @@
+STRUKTUR FOLDER WEBSITE PERISAI
+================================
+
+perisai-website/
+│
+├── admin/                          # Folder Panel Admin
+│   ├── .htaccess                  # Proteksi folder admin
+│   ├── login.php                  # Halaman login admin
+│   ├── dashboard.php              # Dashboard admin dengan statistik
+│   └── logout.php                 # Proses logout admin
+│
+├── css/                           # Folder CSS
+│   ├── style.css                  # CSS untuk frontend (halaman utama)
+│   └── admin-style.css            # CSS untuk admin panel
+│
+├── js/                            # Folder JavaScript
+│   └── script.js                  # JavaScript untuk interaktivitas
+│
+├── includes/                      # Folder Konfigurasi
+│   └── config.php                 # Konfigurasi database & fungsi umum
+│
+├── images/                        # Folder Gambar (kosong - perlu diisi)
+│   ├── logo-bpjs.png             # Logo BPJS (tambahkan manual)
+│   ├── logo-perisai.png          # Logo PERISAI (tambahkan manual)
+│   ├── hero-illustration.png     # Gambar hero section
+│   ├── about-illustration.png    # Gambar about section
+│   ├── icon-*.png                # Icon-icon untuk fitur
+│   └── step*.png                 # Icon untuk langkah-langkah
+│
+├── .htaccess                      # Konfigurasi Apache
+├── index.php                      # Halaman utama website
+├── daftar.php                     # Halaman pendaftaran
+├── submit_form.php                # Handler untuk form kontak
+├── database.sql                   # File SQL database
+├── README.md                      # Dokumentasi utama
+├── INSTALL.md                     # Panduan instalasi lengkap
+├── DATABASE_DOCS.md               # Dokumentasi database
+└── CHANGELOG.md                   # Catatan perubahan versi
+
+
+PENJELASAN SETIAP FILE
+======================
+
+ROOT DIRECTORY
+--------------
+.htaccess           : Konfigurasi Apache (keamanan, cache, compression)
+index.php           : Halaman beranda dengan semua section
+daftar.php          : Form pendaftaran peserta PERISAI
+submit_form.php     : Handler AJAX untuk form kontak
+database.sql        : File SQL untuk membuat database & tabel
+README.md           : Dokumentasi lengkap project
+INSTALL.md          : Panduan instalasi step-by-step
+DATABASE_DOCS.md    : Dokumentasi struktur database
+CHANGELOG.md        : Catatan versi & update
+
+FOLDER: admin/
+--------------
+.htaccess           : Proteksi folder admin
+login.php           : Form login admin dengan validasi
+dashboard.php       : Dashboard dengan statistik & data
+logout.php          : Proses logout & destroy session
+
+FOLDER: css/
+------------
+style.css           : CSS untuk frontend
+                      - Reset & base styles
+                      - Header & navigation
+                      - Hero section
+                      - About section
+                      - Steps section
+                      - Benefits section
+                      - Contact section
+                      - Footer
+                      - Responsive breakpoints
+
+admin-style.css     : CSS untuk admin panel
+                      - Sidebar navigation
+                      - Dashboard layout
+                      - Stats cards
+                      - Tables & forms
+                      - Admin components
+
+FOLDER: js/
+-----------
+script.js           : JavaScript untuk:
+                      - Mobile menu toggle
+                      - Smooth scrolling
+                      - Form validation
+                      - AJAX submission
+                      - Scroll animations
+                      - Video player modal
+                      - Counter animation
+
+FOLDER: includes/
+-----------------
+config.php          : File konfigurasi:
+                      - Koneksi database
+                      - Konstanta database
+                      - Fungsi clean_input()
+                      - Fungsi validate_email()
+
+FOLDER: images/
+---------------
+(Folder kosong - perlu diisi dengan gambar)
+
+Logo:
+- logo-bpjs.png (150x50px recommended)
+- logo-perisai.png (150x50px recommended)
+
+Illustrations:
+- hero-illustration.png (600x400px)
+- about-illustration.png (500x300px)
+
+Icons:
+- icon-education.png (50x50px)
+- icon-registration.png (50x50px)
+- icon-claim.png (50x50px)
+- icon-jkk.png (35x35px)
+- icon-jkm.png (35x35px)
+- icon-jht.png (35x35px)
+- icon-jp.png (35x35px)
+- icon-email.png (20x20px)
+- icon-phone.png (20x20px)
+- icon-location.png (20x20px)
+
+Steps:
+- step1-icon.png (80x80px)
+- step2-icon.png (80x80px)
+- step3-icon.png (80x80px)
+- step4-icon.png (80x80px)
+
+
+FILE YANG WAJIB DIKONFIGURASI
+==============================
+
+1. includes/config.php
+   - Sesuaikan setting database jika berbeda dari default
+
+2. images/ (folder)
+   - Tambahkan semua gambar yang dibutuhkan
+   - Atau biarkan (akan muncul placeholder)
+
+3. database.sql
+   - Import ke phpMyAdmin untuk membuat database
+
+
+ALUR KERJA WEBSITE
+==================
+
+FRONTEND (Pengunjung):
+1. User mengakses index.php
+2. User melihat informasi PERISAI
+3. User mengisi form pendaftaran di daftar.php
+4. Data tersimpan ke database
+5. User dapat mengirim pesan via form kontak
+6. Pesan terkirim via AJAX ke submit_form.php
+
+BACKEND (Admin):
+1. Admin login di admin/login.php
+2. Sistem validasi username & password
+3. Jika valid, redirect ke dashboard.php
+4. Admin melihat statistik & data
+5. Admin dapat logout via logout.php
+
+
+TEKNOLOGI YANG DIGUNAKAN
+=========================
+
+Backend:
+- PHP 7.4+ (server-side scripting)
+- MySQL (database)
+- Session management (untuk admin login)
+
+Frontend:
+- HTML5 (semantic markup)
+- CSS3 (styling, animations, responsive)
+- JavaScript ES6+ (interactivity)
+- AJAX (form submission)
+
+Server:
+- Apache web server
+- .htaccess configuration
+- mod_rewrite (optional)
+
+
+FITUR KEAMANAN
+==============
+
+1. Password Hashing
+   - Menggunakan password_hash() PHP
+   - Algoritma: bcrypt
+
+2. SQL Injection Prevention
+   - Prepared statements
+   - mysqli_real_escape_string()
+
+3. XSS Prevention
+   - htmlspecialchars()
+   - Input sanitization
+
+4. Session Security
+   - Session untuk admin login
+   - Timeout handling
+
+5. File Protection
+   - .htaccess untuk proteksi
+   - Folder admin dilindungi
+
+
+UKURAN FILE & PERFORMANCE
+==========================
+
+Total Size: ~50KB (tanpa gambar)
+- PHP files: ~30KB
+- CSS files: ~16KB
+- JS files: ~10KB
+- SQL file: ~2KB
+- Documentation: ~20KB
+
+Load Time (estimasi):
+- Homepage: < 2 seconds
+- Admin Dashboard: < 1 second
+
+Database Size:
+- Empty: < 100KB
+- 1000 records: ~1MB
+- 10000 records: ~10MB
+
+
+BROWSER COMPATIBILITY
+=====================
+
+✅ Chrome (latest)
+✅ Firefox (latest)
+✅ Safari (latest)
+✅ Edge (latest)
+✅ Mobile browsers
+
+Tested On:
+- Desktop: Windows, Mac, Linux
+- Mobile: Android, iOS
+
+
+RESPONSIVE BREAKPOINTS
+======================
+
+Desktop:  > 1024px
+Tablet:   768px - 1024px
+Mobile:   < 768px
+
+
+CARA UPDATE/MODIFIKASI
+======================
+
+Mengubah Warna:
+- Edit variabel warna di css/style.css
+
+Menambah Halaman:
+- Buat file PHP baru
+- Copy struktur dari index.php
+- Update navigation menu
+
+Menambah Tabel Database:
+- Edit database.sql
+- Tambah query CREATE TABLE
+- Re-import database
+
+Mengubah Email/Kontak:
+- Edit di index.php bagian Contact Section
+- Update di database jika perlu
+
+
+MAINTENANCE
+===========
+
+Backup Reguler:
+- Backup database via phpMyAdmin (weekly)
+- Backup file via FTP/cPanel (weekly)
+
+Update:
+- Update PHP version sesuai kebutuhan
+- Update security patches
+- Optimize database secara berkala
+
+Monitoring:
+- Cek error logs di XAMPP
+- Monitor database size
+- Cek performance via browser DevTools
+
+
+---
+© 2024 BPJS Ketenagakerjaan - Program PERISAI
